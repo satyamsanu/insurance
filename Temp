@@ -1,0 +1,8 @@
+import numpy as np
+
+def create_correlated_variable(existing_variable, correlation):
+    mean = np.mean(existing_variable)
+    std_dev = np.std(existing_variable)
+    new_variable = np.random.normal(mean, std_dev, len(existing_variable))
+    new_variable = new_variable * correlation + existing_variable * (1 - correlation)
+    return new_variable
